@@ -3,11 +3,25 @@
 데이터를 받기위한 폼 생성
 -->
 
-{{>layouts/header}}
 
+
+{{>layouts/header}}
+<!-- 1번째 폼
 <form action="">
     <input type="text">
     <textarea></textarea>
     <button type ="submit">Submit</button>
+</form>
+-->
+<form class="container">
+    <div class="mb-3">
+        <label class = "form-label">제목</label>
+        <input type="text" class="form-control" name = "title">
+    </div>
+    <div class="mb-3">
+        <label class = "form-label">내용</label>
+        <textarea class="form-control" rows="3" name ="content"></textarea>
+    </div>
+    <button type = "submit" class="btn btn-primary">Submit</button>
 </form>
 {{>layouts/footer}}
