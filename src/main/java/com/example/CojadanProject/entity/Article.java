@@ -5,11 +5,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
 @AllArgsConstructor
 @ToString
+@NoArgsConstructor
 public class Article {
     @Id //엔티티의 대푯값으로 제목과 내용이 같은 엔티티가 잇더라도 Id로 다른 테이블(엔티티)인 걸 구분해줌
     @GeneratedValue //자동생성기능 (숫자가 자동으로 생성되는 기능)

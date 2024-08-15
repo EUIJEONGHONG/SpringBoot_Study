@@ -15,7 +15,9 @@ import com.example.CojadanProject.repository.ArticleRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -47,5 +49,14 @@ public class ArticleController {
 
 
         return "";
+    }
+    @GetMapping("/articles/{id}") //게시판 글이 작성될때 생성되는 id에 따라 url 받기
+    public String show(@PathVariable Long id, Model model){ //생성되는 id를 변수로 받기, 뷰에 보여줄 데이터를 담을 Model 변수 추가
+        log.info("id = "+id); //로그남기기
+        //데이터 가져오기
+        //Article articleEntity = articleRepository.findById(id); //반환형이 Article이 아닐때 null 등 오류가 생기기 때문에 빨간줄이 뜸
+        Article articleEntity = articleRepository.findById(id).orElse(null); //반환형이 Article이 아닐때를 대비
+        model.addAttribute("article",articleEntity); //모델에 데이터 담기
+        return "articles/show"; //show라는 뷰 반환하기
     }
 }

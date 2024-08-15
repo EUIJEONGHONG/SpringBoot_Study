@@ -1,0 +1,23 @@
+{{>layouts/header}}
+<!--부트스트랩에서 복사해온 표 테이블 붙여넣기-->
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">TITLE</th>
+        <th scope="col">CONTENTS</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#article}}
+    <tr>
+        <th>{{id}}</th>
+        <td>{{title}}</td>
+        <td>{{content}}</td>
+    </tr>
+    {{/article}}
+    </tbody>
+</table>
+
+
+{{>layouts/footer}}
