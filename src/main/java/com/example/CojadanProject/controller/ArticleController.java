@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Controller
 @Slf4j //println문을 대체하기 위한 롬복
 public class ArticleController {
@@ -58,5 +60,11 @@ public class ArticleController {
         Article articleEntity = articleRepository.findById(id).orElse(null); //반환형이 Article이 아닐때를 대비
         model.addAttribute("article",articleEntity); //모델에 데이터 담기
         return "articles/show"; //show라는 뷰 반환하기
+    }
+    @GetMapping("/articles/index")
+    public String index(Model model){
+        List<Article> articleEntityList = articleRepository.findAll();
+        model.addAttribute("articleList", articleEntityList);
+        return "articles/index";
     }
 }
