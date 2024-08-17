@@ -20,6 +20,9 @@ public class Article {
     private String title;
     @Column
     private String content;
+    public Long getId(){
+        return id;
+    }
 /*
     //생성자로 현재 롬복에 의해 대체됨
     public Article(Long id, String title, String content){

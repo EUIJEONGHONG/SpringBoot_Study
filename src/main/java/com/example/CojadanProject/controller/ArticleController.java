@@ -50,7 +50,7 @@ public class ArticleController {
         //System.out.println(saved.toString()); // 잘 저장되었는지 확인
 
 
-        return "";
+        return "redirect:/articles/"+saved.getId();
     }
     @GetMapping("/articles/{id}") //게시판 글이 작성될때 생성되는 id에 따라 url 받기
     public String show(@PathVariable Long id, Model model){ //생성되는 id를 변수로 받기, 뷰에 보여줄 데이터를 담을 Model 변수 추가
@@ -61,7 +61,7 @@ public class ArticleController {
         model.addAttribute("article",articleEntity); //모델에 데이터 담기
         return "articles/show"; //show라는 뷰 반환하기
     }
-    @GetMapping("/articles/index")
+    @GetMapping("/articles")
     public String index(Model model){
         List<Article> articleEntityList = articleRepository.findAll();
         model.addAttribute("articleList", articleEntityList);

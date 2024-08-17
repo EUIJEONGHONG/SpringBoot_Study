@@ -11,12 +11,17 @@
     {{#articleList}}
         <tr>
             <th>{{id}}</th>
-            <td>{{title}}</td>
+            <td> <a href="/articles/{{id}}">{{title}}</a> </td>
             <td>{{content}}</td>
         </tr>
     {{/articleList}}
     </tbody>
 </table>
+
+<div class ="mb-5 container-fluid">
+    <hr>
+    <button type = "button" class="btn btn-primary" onClick="location.href='/articles/new'">New Article</button>
+</div>
 
 
 {{>layouts/footer}}
